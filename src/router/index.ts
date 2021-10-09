@@ -1,5 +1,5 @@
 import { Express } from 'express'
-import testRouter from '../controller/testController'
+import testRouter from './testRouter'
 
 export const configRouter = (app: Express) => {
   const rules = {

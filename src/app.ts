@@ -20,9 +20,6 @@ app.use(express.json())
 app.use(logger)
 
 app.get('/', (req: Request, res: Response) => {
-  // console.log(req);
-  console.log(req.body)
-  console.log(req.params)
   res.send(HttpResult.success())
 })
 

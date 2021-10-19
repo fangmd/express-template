@@ -4,7 +4,7 @@
 // import { initEnv } from '../src/env'
 // initEnv()
 import supertest from 'supertest'
-import app from '../src/server'
+import app from '../src/app'
 // import { dbInit } from '../src/db/mysql'
 // import { redisClient } from '../src/cache/redis'
 

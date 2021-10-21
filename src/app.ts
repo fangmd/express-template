@@ -1,14 +1,16 @@
-import express, { Request, Response } from 'express'
 import dotenv from 'dotenv'
+// initialize configuration
+dotenv.config()
+
+import { dbInit } from './db/mysql'
+import express, { Request, Response } from 'express'
+
 import { HttpResult } from './response'
 import 'express-async-errors'
 import { globalError } from './middleware/globalError'
 import { logger } from './middleware/logger'
 import { corsWrap } from './middleware/cors'
 import { configRouter } from './router'
-
-// initialize configuration
-dotenv.config()
 
 console.log(process.env.NODE_ENV)
 
@@ -28,8 +30,10 @@ configRouter(app)
 app.use(globalError)
 
 if (process.env.NODE_ENV !== 'uniTest') {
-  app.listen(port, () => {
-    console.log(`Example app listening at http://localhost:${port}`)
+  dbInit().then(() => {
+    app.listen(port, () => {
+      console.log(`Example app listening at http://localhost:${port}`)
+    })
   })
 }
 

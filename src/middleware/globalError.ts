@@ -3,13 +3,14 @@ import { ParamsErrorName } from './../utils/errors'
 import { Request, Response } from 'express'
 import { HttpResult } from '../response'
 import { BizErrorName } from '../utils/errors'
+import { isDEV } from '../utils/env'
 
 /**
  * 全局错误处理
  * 中间件放在最后
  */
 export const globalError = function (err, req: Request, res: Response, next) {
-  console.log('globalError', err)
+  if (isDEV) console.log('globalError', err)
 
   if (err.name === BizErrorName) {
     // 业务错误

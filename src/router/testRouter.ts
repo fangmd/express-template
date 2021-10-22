@@ -1,5 +1,6 @@
 import express from 'express'
 import { TestController } from '../controller/TestController'
+import { UserController } from '../controller/UserController'
 import { HttpResult } from '../response'
 import { paramsGetValidate, paramsPostValidate } from '../validators/testValidator'
 const router = express.Router()

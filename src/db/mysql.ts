@@ -5,6 +5,9 @@
 import { createConnection } from 'typeorm'
 import Config from '../config'
 
+console.log('mysql __dirname', __dirname);
+
+
 export const dbInit = async () => {
   const connection = await createConnection({
     type: 'mysql', // 数据库类型

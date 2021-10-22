@@ -1,8 +1,7 @@
+import { isDEV } from './env'
 import mongoose, { ConnectOptions } from 'mongoose'
 
-if (process.env.NODE_ENV === 'development') {
-  mongoose.set('debug', true)
-}
+if (isDEV) mongoose.set('debug', true)
 
 function connectMongoDB(address: string) {
   try {
@@ -10,7 +9,7 @@ function connectMongoDB(address: string) {
       useNewUrlParser: true,
       bufferCommands: false,
       //   bufferMaxEntries: 0,
-    //   autoReconnect: true,
+      //   autoReconnect: true,
       maxPoolSize: 10,
       minPoolSize: 5,
       auth: { username: `${process.env.MONGODB_USER}`, password: `${process.env.MONGODB_PWD}` },
@@ -31,7 +30,7 @@ function connectMongoDB(address: string) {
 
 const url = `mongodb://${process.env.MONGODB_USER}:${process.env.MONGODB_PWD}@${process.env.MONGODB_URL}${process.env.MONGODB_DBBASE}`
 
-console.log(url)
+if (isDEV) console.log(url)
 
 const mongoInstance = connectMongoDB(url)
 

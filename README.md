@@ -10,7 +10,7 @@
 - [x] router, router 模块化
 - [x] jest
 - [x] 参数校验 express-validator
-- [x] mongodb
+- [x] mongoose 连接 mongodb
 
 
 中间件：

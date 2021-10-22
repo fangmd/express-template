@@ -14,8 +14,11 @@
 
 中间件：
 
-- [x] 日志处理 morgan
+- [x] 日志处理 morgan, bunyan
 - [x] 全局错误处理 globalError
 - [x] cors
 - [x] body-parser, express 4.16.0 后支持 body 解析，可以直接使用: `express.json()`
 
+
+# PM
+"log_date_format": "YYYY-MM-DD HH:mm:ss",

@@ -8,10 +8,9 @@
             "logs",
             "uploadFiles"
         ],
-        "instances": "max",
+        "instances": "2",
         "error_file": "./logs/err.log",
         "out_file": "./logs/out.log",
-        "log_date_format": "YYYY-MM-DD HH:mm:ss",
         "exec_mode": "cluster",
         "max_memory_restart": "500M"
     }

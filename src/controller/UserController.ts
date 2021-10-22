@@ -10,7 +10,8 @@ export class UserController {
   }
 
   static async create(req: Request, res) {
-    await UserService.add()
+    const { name, account } = req.body
+    await UserService.add({ name, account })
     res.send(HttpResult.success())
   }
 }

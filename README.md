@@ -10,7 +10,7 @@
 - [x] router, router 模块化
 - [x] jest
 - [x] 参数校验 express-validator
-- [x] mongoose 连接 mongodb
+- [x] typeorm 操作 mongodb
 
 
 中间件：

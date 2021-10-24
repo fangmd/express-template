@@ -11,7 +11,8 @@ import { loggerMiddleware } from './middleware/logger'
 import { corsWrap } from './middleware/cors'
 import { configRouter } from './router'
 import ytLogger from './utils/yt-logger'
-import './utils/mongo-manage'
+import { mongoInit } from './mongo/mongo'
+// import './utils/mongo-manage'
 
 console.log(process.env.NODE_ENV)
 
@@ -44,11 +45,15 @@ configRouter(app)
 app.use(globalError)
 
 if (process.env.NODE_ENV !== 'uniTest') {
-  dbInit().then(() => {
-    app.listen(port, () => {
-      console.log(`Example app listening at http://localhost:${port}`)
+  mongoInit()
+    // .then(() => {
+    //   return dbInit()
+    // })
+    .then(() => {
+      app.listen(port, () => {
+        console.log(`Example app listening at http://localhost:${port}`)
+      })
     })
-  })
 }
 
 export default app
